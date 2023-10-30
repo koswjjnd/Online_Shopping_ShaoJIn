@@ -6,7 +6,7 @@ import com.online_shopping_shaojin.online_shopping_shaojin.db.po.OnlineShoppingS
 
 public interface OnlineShoppingOrderDao {
     int insertOrder(OnlineShoppingOrder order);
-    int insertOrderSharding(OnlineShoppingShardingOrder order);
+    int insertOrderSharding(OnlineShoppingOrder order);
 
     int update(OnlineShoppingOrder order);
 

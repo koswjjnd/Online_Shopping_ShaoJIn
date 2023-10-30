@@ -19,7 +19,7 @@ public class OnlineShoppingOrderDaoImpl implements OnlineShoppingOrderDao {
     }
 
     @Override
-    public int insertOrderSharding(OnlineShoppingShardingOrder order) {
+    public int insertOrderSharding(OnlineShoppingOrder order) {
         return mapper.insertOrderSharding(order);
     }
 

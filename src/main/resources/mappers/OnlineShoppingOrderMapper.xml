@@ -28,8 +28,7 @@
       from online_shopping_order
       where order_no = #{orderNumber,jdbcType=BIGINT}
     </select>
-    <select id="selectByUserIdOrderID"  parameterType="java.lang.Long"
-            resultType="com.online_shopping_shaojin.online_shopping_shaojin.db.po.OnlineShoppingOrder">
+    <select id="selectByUserIdOrderID"  resultType="com.online_shopping_shaojin.online_shopping_shaojin.db.po.OnlineShoppingOrder">
       select
       <include refid="Base_Column_List" />
       from online_shopping_sharding_order
@@ -104,12 +103,12 @@
 
     </trim>
   </insert>
-  <insert id="insertOrderSharding" parameterType="com.online_shopping_shaojin.online_shopping_shaojin.db.po.OnlineShoppingShardingOrder">
+  <insert id="insertOrderSharding" parameterType="com.online_shopping_shaojin.online_shopping_shaojin.db.po.OnlineShoppingOrder">
     insert into online_shopping_sharding_order (order_id, order_no, order_status,
                                        commodity_id, user_id, order_amount,
                                        create_time, pay_time)
     values (#{orderId,jdbcType=BIGINT}, #{orderNo,jdbcType=VARCHAR}, #{orderStatus,jdbcType=INTEGER},
-            #{commodityId,jdbcType=BIGINT}, #{userId,jdbcType=BIGINT}, #{orderAmount,jdbcType=BIGINT},
+            #{commodityId,jdbcType=BIGINT}, #{userId,jdbcType=BIGINT}, #{orderAmount,jdbcType=DECIMAL},
             #{createTime,jdbcType=TIMESTAMP}, #{payTime,jdbcType=TIMESTAMP})
   </insert>
   <update id="updateByPrimaryKeySelective" parameterType="com.online_shopping_shaojin.online_shopping_shaojin.db.po.OnlineShoppingOrder">

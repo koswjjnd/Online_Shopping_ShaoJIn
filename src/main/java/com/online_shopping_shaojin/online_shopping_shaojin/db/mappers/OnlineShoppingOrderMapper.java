@@ -18,7 +18,7 @@ public interface OnlineShoppingOrderMapper {
 
     OnlineShoppingOrder queryOrderByNumber(String orderNumber);//去红鸟头里加这个方法
 
-    OnlineShoppingOrder selectByUserIdOrderID(Long orderId, Long userID);
+    OnlineShoppingOrder selectByUserIdOrderID(Long orderId, Long userId);
 
-    int insertOrderSharding(OnlineShoppingShardingOrder record);
+    int insertOrderSharding(OnlineShoppingOrder record);
 }

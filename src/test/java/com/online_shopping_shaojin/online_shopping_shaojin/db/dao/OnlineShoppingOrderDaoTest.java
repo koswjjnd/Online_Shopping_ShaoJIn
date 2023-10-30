@@ -64,7 +64,7 @@ class OnlineShoppingOrderDaoTest {
                             .userId(123L)
                             .orderStatus(0)
                             .build();
-            dao.insertOrder(order);
+            dao.insertOrderSharding(order);
             //
         }
     }
@@ -91,7 +91,7 @@ class OnlineShoppingOrderDaoTest {
             orders.add(order);
         }
         for (int i = 0; i < 100; i++) {
-            dao.insertOrder(orders.get(i));
+            dao.insertOrderSharding(orders.get(i));
         }
     }
 }
