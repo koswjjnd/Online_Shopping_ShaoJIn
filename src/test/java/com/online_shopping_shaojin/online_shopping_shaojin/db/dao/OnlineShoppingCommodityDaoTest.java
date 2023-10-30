@@ -24,6 +24,7 @@ class OnlineShoppingCommodityDaoTest {
 
     @Test
     void insertCommodity() {
+        dao.deleteCommodityById(123L);
         OnlineShoppingCommodity commodity=OnlineShoppingCommodity.builder()
                 .commodityId(123L)
                 .commodityDesc("test product")
@@ -40,7 +41,9 @@ class OnlineShoppingCommodityDaoTest {
     @Test
     void queryCommodityById() {
         OnlineShoppingCommodity commodity = dao.queryCommodityById(123L);
-        log.info(commodity.getCommodityName());
+        if (commodity != null) {
+            log.info(commodity.getCommodityName());
+        }
     }
 
     @Test

@@ -4,6 +4,7 @@ import com.online_shopping_shaojin.online_shopping_shaojin.db.dao.OnlineShopping
 import com.online_shopping_shaojin.online_shopping_shaojin.db.mappers.OnlineShoppingCommodityMapper;
 import com.online_shopping_shaojin.online_shopping_shaojin.db.mappers.OnlineShoppingOrderMapper;
 import com.online_shopping_shaojin.online_shopping_shaojin.db.po.OnlineShoppingOrder;
+import com.online_shopping_shaojin.online_shopping_shaojin.db.po.OnlineShoppingShardingOrder;
 import org.springframework.stereotype.Repository;
 
 import javax.annotation.Resource;
@@ -18,6 +19,11 @@ public class OnlineShoppingOrderDaoImpl implements OnlineShoppingOrderDao {
     }
 
     @Override
+    public int insertOrderSharding(OnlineShoppingShardingOrder order) {
+        return mapper.insertOrderSharding(order);
+    }
+
+    @Override
     public int update(OnlineShoppingOrder order) {
         return mapper.updateByPrimaryKey(order);
     }
@@ -25,6 +31,11 @@ public class OnlineShoppingOrderDaoImpl implements OnlineShoppingOrderDao {
     @Override
     public OnlineShoppingOrder queryOrder(Long orderId) {
         return mapper.selectByPrimaryKey(orderId);
+    }
+
+    @Override
+    public OnlineShoppingOrder queryOrderSharding(Long orderId, Long userID) {
+        return mapper.selectByUserIdOrderID(orderId, userID);
     }
 
     @Override

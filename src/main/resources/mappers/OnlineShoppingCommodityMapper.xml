@@ -29,6 +29,16 @@
     where creator_user_id = #{userId,jdbcType=BIGINT}
 
   </select>
+  <select id="deductStockWithStoreProcedure" parameterType="java.util.HashMap" statementType="CALLABLE">
+    CALL deductStockSp(#{commodityId,jdbcType=BIGINT,mode=IN}, #{res,jdbcType=INTEGER, mode=OUT})
+
+  </select>
+  <select id="queryKeyword"
+          resultType="com.online_shopping_shaojin.online_shopping_shaojin.db.po.OnlineShoppingCommodity">
+    select <include refid="Base_Column_List" />
+    from online_shopping.online_shopping_commodity as c
+    where c.commodity_desc like #{keyword,jdbcType=VARCHAR};
+  </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
     delete from online_shopping_commodity
     where commodity_id = #{commodityId,jdbcType=BIGINT}
@@ -134,4 +144,15 @@
       lock_stock = #{lockStock,jdbcType=INTEGER}
     where commodity_id = #{commodityId,jdbcType=BIGINT}
   </update>
+    <update id="deductStock" parameterType="java.lang.Long">
+      update online_shopping_commodity
+      set available_stock = available_stock-1, lock_stock=lock_stock+1
+      where commodity_id = #{commodityId,jdbcType=BIGINT}
+      and available_stock>0
+    </update>
+    <update id="revertStock">
+      update online_shopping_commodity
+      set available_stock = available_stock+1, lock_stock=lock_stock-1
+      where commodity_id = #{commodityId,jdbcType=BIGINT}
+    </update>
 </mapper>

@@ -5,6 +5,7 @@ package com.online_shopping_shaojin.online_shopping_shaojin.db.mappers;
 import com.online_shopping_shaojin.online_shopping_shaojin.db.po.OnlineShoppingCommodity;
 
 import java.util.List;
+import java.util.Map;
 
 public interface OnlineShoppingCommodityMapper {
     int deleteByPrimaryKey(Long commodityId);
@@ -20,4 +21,12 @@ public interface OnlineShoppingCommodityMapper {
     int updateByPrimaryKey(OnlineShoppingCommodity record);
 
     List<OnlineShoppingCommodity> listCommoditiesByUserId(Long userId);
+
+    int deductStock(Long commodityId);
+
+    void deductStockWithStoreProcedure(Map<String, Object> para);
+
+    int revertStock(Long commodityId);
+
+    List<OnlineShoppingCommodity> queryKeyword(String keyword);
 }

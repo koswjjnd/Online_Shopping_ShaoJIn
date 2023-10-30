@@ -1,9 +1,11 @@
 //每个的record里的attribute
 package com.online_shopping_shaojin.online_shopping_shaojin.db.po;
 
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 
 @Builder
+@AllArgsConstructor
 public class OnlineShoppingCommodity {
     private Long commodityId;
 

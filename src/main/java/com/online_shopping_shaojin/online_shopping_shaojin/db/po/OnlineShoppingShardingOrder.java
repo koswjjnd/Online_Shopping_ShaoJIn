@@ -2,13 +2,12 @@ package com.online_shopping_shaojin.online_shopping_shaojin.db.po;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
-import lombok.Data;
 
 import java.util.Date;
+
 @Builder
-@Data
 @AllArgsConstructor
-public class OnlineShoppingOrder {
+public class OnlineShoppingShardingOrder {
     private Long orderId;
 
     private String orderNo;
@@ -88,5 +87,4 @@ public class OnlineShoppingOrder {
     public void setPayTime(Date payTime) {
         this.payTime = payTime;
     }
-
 }

@@ -12,4 +12,12 @@ public interface OnlineShoppingCommodityDao {
     int updateCommodity(OnlineShoppingCommodity record);
 
     List<OnlineShoppingCommodity> listCommoditiesByUserId(Long userId);
+
+    int deductStock(Long commodityId);
+
+    int deductStockWithStoreProcedure(Long commodityId);
+
+    int revertStock(Long commodityId);
+
+    List<OnlineShoppingCommodity> queryKeyword(String keyword);
 }
