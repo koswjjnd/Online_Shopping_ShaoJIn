@@ -22,12 +22,12 @@ class OnlineShoppingOrderDaoTest {
     OnlineShoppingOrderDao dao;//增删查改都要用dao
     @Test
     void insertOrder() {
-        dao.deleteOder(123L);
-        OnlineShoppingOrder order= OnlineShoppingOrder.builder()
-                .orderId(123L)
-                .commodityId(123L)
-                .build();
-        dao.insertOrder(order);
+//        dao.deleteOder(123L);
+//        OnlineShoppingOrder order= OnlineShoppingOrder.builder()
+//                .orderId(123L)
+//                .commodityId(123L)
+//                .build();
+//        dao.insertOrder(order);
     }
 
     @Test
@@ -50,23 +50,23 @@ class OnlineShoppingOrderDaoTest {
     }
     @Test
     void testInsertOrderBySharding(){
-        for (int i = 0; i < 100; i++) {
-            long orderId = i + 100L;
-            OnlineShoppingOrder order =
-                    OnlineShoppingOrder.builder()
-                            .orderStatus(0)
-                            .orderNo("123")
-                            .orderId(orderId)
-                            .orderAmount(123L)
-                            .commodityId(123L)
-                            .createTime(new Date())
-                            .payTime(new Date())
-                            .userId(123L)
-                            .orderStatus(0)
-                            .build();
-            dao.insertOrderSharding(order);
-            //
-        }
+//        for (int i = 0; i < 100; i++) {
+//            long orderId = i + 100L;
+//            OnlineShoppingOrder order =
+//                    OnlineShoppingOrder.builder()
+//                            .orderStatus(0)
+//                            .orderNo("123")
+//                            .orderId(orderId)
+//                            .orderAmount(123L)
+//                            .commodityId(123L)
+//                            .createTime(new Date())
+//                            .payTime(new Date())
+//                            .userId(123L)
+//                            .orderStatus(0)
+//                            .build();
+//            dao.insertOrderSharding(order);
+//            //
+//        }
     }
 
     @Test

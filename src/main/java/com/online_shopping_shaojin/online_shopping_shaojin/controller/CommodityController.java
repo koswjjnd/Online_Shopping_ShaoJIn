@@ -40,6 +40,12 @@ public class CommodityController {
         return "add_commodity";
     }
 
+    @RequestMapping("/staticItem/{commodityId}")
+    public String staticItemPage(
+            @PathVariable("commodityId") long commodityId
+    ) {
+        return "item_detail_" + commodityId;
+    }
     @PostMapping("/addItemAction")
 //通过add_commodity这个html里的<form th:action="@{/addItemAction}" method="post">这一行知道添加商品后要跳到这里
     public String addItemAction(@RequestParam("commodityId") long commodityId,
